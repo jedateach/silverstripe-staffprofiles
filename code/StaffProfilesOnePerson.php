@@ -43,16 +43,23 @@ class StaffProfilesOnePerson extends Page {
 		return $this->Title;
 	}
 
+	private $encodedEmailObject = null;
+
+	private function getEncodedEmailObject() {
+		if(class_exists("HideEmail")) {
+			return HideEmail::convert_email($this->Email, "enquiry from ".Director::absoluteBaseURL());
+		}
+	}
 
   public function EmailObfuscatorName() {
-		$obj = HideEmail::convert_email($this->Email);
+		$obj = $this->getEncodedEmailObject();
 		if($obj) {
 			return $obj->text;
 		}
 	}
 
 	public function EmailObfuscatorLink() {
-		$obj = HideEmail::convert_email($this->Email);
+		$obj = $this->getEncodedEmailObject();
 		if($obj) {
 			return $obj->mailto;
 		}
