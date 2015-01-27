@@ -22,11 +22,13 @@ class StaffProfile extends DataObject {
 	);
 
 	private static $searchable_fields = array(
-		"Name" => "PartialMatchFilter"
+		"FirstName" => "PartialMatchFilter",
+		"Surname" => "PartialMatchFilter"
 	);
 
 	private static $summary_fields = array(
-		"Name" => "Name",
+		"FirstName" => "First Name",
+		"Surname" => "Surname",
 		"Email" => "Email",
 		"Title" => "Title"
 	);
@@ -34,7 +36,7 @@ class StaffProfile extends DataObject {
 	private static $singular_name = "Staff Profile";
 	private static $plural_name = "Staff Profiles";
 
-	private static $default_sort = "Sort ASC, Name ASC";
+	private static $default_sort = "Sort ASC, Surname ASC";
 
 	private static $defaults = array(
 		"Sort" => 100
