@@ -21,7 +21,6 @@ class StaffProfilesPage extends Page {
 			$config->addComponent(new GridFieldOrderableRows());
 		}
 
-
 		return $fields;
 	}
 
